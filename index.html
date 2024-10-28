@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邱義豪的作品集網站</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .custom-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="#home">邱義豪的作品集網站</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#portfolio">作品</a></li>
+                <li><a href="#about">關於我</a></li>
+                <li><a href="#contact">聯繫</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="fullscreen-section">
+            <div class="background-media">
+                <!-- 如果使用視頻 -->
+                <video autoplay muted loop id="myVideo">
+                    <source src="VIDEO\YIHAOPRO.mp4" type="video/mp4">
+                </video>
+                <!-- 如果使用 GIF -->
+                <!-- <img src="path/to/your/gif.gif" alt="Background GIF"> -->
+            </div>
+            <div class="content-overlay">
+                <h2>歡迎來到我的作品集網站</h2>
+                <p>滾動或點擊下方按鈕探索更多</p>
+                <a href="#portfolio" class="cta-button">查看作品</a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="fullscreen-section">
+            <h2 class="portfolio-title">我的作品</h2>
+            <div class="portfolio-container">
+                <div class="portfolio-section">
+                    <h3 class="portfolio-section-title">圖片作品</h3>
+                    <div class="portfolio-grid" id="image-gallery">
+                        <!-- 圖片將在這裡動態生成 -->
+                    </div>
+                </div>
+                <div class="portfolio-section">
+                    <h3 class="portfolio-section-title">影片作品</h3>
+                    <div class="portfolio-grid" id="video-gallery">
+                        <!-- 影片縮略圖將在這裡動態生成 -->
+                    </div>
+                </div>
+                <div class="portfolio-section">
+                    <h3 class="portfolio-section-title">AI作品</h3>
+                    <div class="portfolio-slider-container">
+                        <button class="slider-arrow left-arrow">&lt;</button>
+                        <div class="portfolio-slider" id="Ai-gallery">
+                            <!-- AI 影片縮略圖將在這裡動態生成 -->
+                        </div>
+                        <button class="slider-arrow right-arrow">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="fullscreen-section">
+            <h2 class="about-title">關於我</h2>
+            <div class="about-content">
+                <div class="about-left">
+                    <div class="profile-photo">
+                        <img src="images\51940.jpg" alt="個人照片">
+                    </div>
+                </div>
+                <div class="about-right">
+                    <div class="about-description">
+                        <p>我是一位充滿熱情的創意工作者，專注於網頁設計和用戶體驗。我擁有豐富的項目經驗，善於將創意理念轉化為實際的數字產品。</p>
+                        <p>在我職業生涯中，我不斷追求創新和卓越，努力將每一個項目都打造成獨特而吸引人的作品。我相信好的設計不僅要美觀，還要實用且能夠解決問題。</p>
+                        <p>除了技術技能外，我也重視團隊合作和溝通。我喜歡與客戶和同事緊密合作，確保最終產品不僅符合而且超越預期。</p>
+                    </div>
+                </div>
+                <div class="skills-chart">
+                    <h3>專業技能</h3>
+                    <div class="skills-container">
+                        <!-- 技能條將通過JavaScript動態生成 -->
+                    </div>
+                </div>
+            </div>
+            <div class="tools-section">
+                <h3>我使用的工具</h3>
+                <div class="tools-container">
+                    <!-- 工具圖標將在這裡動態生成 -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fullscreen-section">
+            <h2>聯繫我</h2>
+            <p>如果您對我的作品感興趣或有任何問題，歡迎聯繫我：</p>
+            <a href="mailto:a9632147g@gmail.com" class="email-link">a9632147g@gmail.com</a>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content" id="modal-content"></div>
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
