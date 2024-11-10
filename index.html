@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邱義豪的作品集網站</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .custom-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="#home">邱義豪的作品集網站</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#portfolio">作品</a></li>
+                <li><a href="#about">關於我</a></li>
+                <li><a href="#experience">專案經歷</a></li>
+                <li><a href="#contact">聯繫</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="fullscreen-section">
+            <div class="background-media">
+                <!-- 如果使用視頻 -->
+                <div class="video-container">
+                    <iframe id="youtubeVideo"
+                        src="https://www.youtube.com/embed/FMPP_pAcIJs?autoplay=1&mute=1&loop=1&playlist=FMPP_pAcIJs&controls=0&playsinline=1&enablejsapi=1"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <!-- 如果使用 GIF -->
+                <!-- <img src="path/to/your/gif.gif" alt="Background GIF"> -->
+            </div>
+            <div class="content-overlay">
+                <h2>歡迎來到我的作品集網站</h2>
+                <p>滾動或點下方按鈕探索更多</p>
+                <a href="#portfolio" class="cta-button">查看作品</a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="fullscreen-section">
+            <h2 class="portfolio-title">我的作品</h2>
+            <div class="portfolio-container">
+                <div class="portfolio-section">
+                    <h3 class="portfolio-section-title">圖片作品</h3>
+                    <div class="portfolio-grid" id="image-gallery">
+                        <!-- 圖片將在這裡動態生成 -->
+                    </div>
+                </div>
+                <div class="portfolio-section">
+                    <h3 class="portfolio-section-title">影片作品</h3>
+                    <div class="portfolio-grid" id="video-gallery">
+                        <!-- 影片縮略圖將在這裡動態生成 -->
+                    </div>
+                </div>
+                <div class="portfolio-section">
+                    <h3 class="portfolio-section-title">AI作品</h3>
+                    <div class="portfolio-slider-container">
+                        <button class="slider-arrow left-arrow">&lt;</button>
+                        <div class="portfolio-slider" id="Ai-gallery">
+                            <!-- AI 影片縮略圖將在這裡動態生成 -->
+                        </div>
+                        <button class="slider-arrow right-arrow">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="fullscreen-section">
+            <h2 class="about-title">關於我</h2>
+            <div class="about-container">
+                <div class="about-content">
+                    <!-- 左側照片 -->
+                    <div class="about-left">
+                        <div class="profile-photo">
+                            <img src="images\51940.jpg" alt="個人照片">
+                        </div>
+                    </div>
+                    
+                    <!-- 中間文字描述 -->
+                    <div class="about-main">
+                        <div class="about-description">
+                            <p>我是一位對於學習抱有熱忱，並積極迎接挑戰的人。無論是新的技術或全新的任務，我總是全力投入，並勇於克服難題。</p>
+                            <p>生成式AI工作經歷</p>
+                            <p>在我上一份工作中，我深入參與生成式AI的應用與管理，負責AI內容生成、開源AI安裝與偵錯、短視頻腳本策劃及影片剪輯。我為公司成功製作了高流量短視頻，單支流量達到1萬至10萬次觀看量。</p>
+                            <p>在我過往的工作經歷中，我有機會與政府、外包商及個人客戶合作，並運用公司與國外接洽的特定軟體。這讓我意識到，光靠現有技能並不足夠，因此我始終保持進修的態度，隨時準備應對新的挑戰。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 右側技能圖表 -->
+                    <div class="skills-chart">
+                        <h3>專業技能</h3>
+                        <div class="skills-container">
+                            <!-- 技能條將通過JavaScript動態生成 -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 工具區域 -->
+                <div class="tools-section">
+                    <h3>我使用的工具</h3>
+                    <div class="tools-container">
+                        <!-- 工具圖標將在這裡動態生成 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="fullscreen-section">
+            <h2 class="experience-title">專案經歷</h2>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024.04 - 2024.10</div>
+                            <h3>生成式AI應用與管理</h3>
+                            <p>負責AI內容生成、開源AI安裝與偵錯、短視頻腳本策劃及影片剪輯。成功製作高流量短視頻，單支流量達1萬至10萬次觀看量。</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023.01 - 2023.03</div>
+                            <h3>元宇宙專案開發</h3>
+                            <p>使用Unreal Engine進行場景製作，負責場景建模、材質設定、光影調整等工作。成功完成虛擬展示空間的建置。</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2022.06 - 2023.06</div>
+                            <h3>VR互動開發</h3>
+                            <p>使用Unity進行VR互動開發，製作多個互動體驗專案。包含場景設計、互動程式編寫等。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2021.04 - 2022.04</div>
+                            <h3>業界實習</h3>
+                            <p>1.台積電駐場人員</p>
+                            <p>作為台積電的駐場人員，我運用AutoCAD及內部3D軟體模擬廠房機具配置，提供施工團隊參考。即使兩個工具對我來說是全新挑戰，但我在一週內掌握其功能，迅速投入並順利推進工作。</p>  
+                            <p>2.國家中山科學研究院 講師</p>
+                            <p>在短時間內，我掌握了公司使用的專業軟體，並將自身的技術應用到講課內容中，以清晰的方式指導院士操作與應用。這份經驗加深了我在教學與技術整合方面的實力。</p>
+                        </div>
+                    </div>
+
+                    <!-- 可以根據需要添加更多項目 -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fullscreen-section">
+            <h2>聯繫我</h2>
+            <p>如果您對我的作品感興趣或有任何問題，歡迎聯繫我：</p>
+            <a href="mailto:a9632147g@gmail.com" class="email-link">a9632147g@gmail.com</a>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content" id="modal-content"></div>
+        <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

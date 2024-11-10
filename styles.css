@@ -1,0 +1,1137 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #f4f4f4;
+    background-color: #121212;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 2rem 2rem; /* 減少上下padding */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    display: flex; /* 使用 flex 布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 水平分散對齊 */
+}
+
+header:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+header h1 {
+    margin: 0; /* 移除默認邊距 */
+}
+
+header h1 a {
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.2em; /* 調整字體大小 */
+}
+
+header h1 a:hover {
+    color: #00ffff;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0; /* 移除默認邊距 */
+    padding: 0; /* 移除默認內邊距 */
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.5em; /* 調整字體大小 */
+}
+
+nav ul li a:hover {
+    color: #00ffff;
+}
+
+.fullscreen-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 改為 center */
+    align-items: center;
+    padding: 4rem 2rem; /* 增加上下內邊距 */
+    text-align: center;
+    position: relative; /* 添加這行 */
+    padding-top: 70px; /* 調整這個值以匹配您的header高度 */
+}
+
+/* 為了確保內容不會被固定的header遮擋 */
+.fullscreen-section:not(#portfolio) {
+    padding-top: 80px; /* 調整這個值以匹配您的header高度 */
+}
+
+/* 特別處理作品集部分 */
+#portfolio {
+    justify-content: flex-start;
+    padding-top: 150px; /* 調整作品集部分的頂部內邊距 */
+}
+
+.portfolio-title {
+    position: absolute;
+    top: 150px; /* 調整這個值以匹配您的header高度 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+}
+
+/* 調整關於我部分的布局 */
+#about .about-content {
+    max-width: 1000px; /* 或者您想要的任何寬度 */
+    width: 100%;
+}
+
+/* 調整聯繫部分的布局 */
+#contact {
+    justify-content: center;
+}
+
+#contact > * {
+    margin-bottom: 1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00ffff;
+    color: #121212;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #00cccc;
+    transform: translateY(-3px);
+}
+
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.portfolio-section {
+    width: 100%; /* 改為全寬 */
+    margin-bottom: 40px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 增加每個項目的最小寬度 */
+    gap: 2rem; /* 增加間距 */
+    padding: 1rem;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+    aspect-ratio: 16 / 9; /* 保持一致的寬高比 */
+}
+
+.portfolio-item img,
+.portfolio-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-item-overlay {
+    opacity: 1;
+}
+
+.portfolio-item-title {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.about-content {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.about-left {
+    flex: 0 0 250px;
+}
+
+.about-main {
+    flex: 1;
+    min-width: 400px;
+    max-width: 800px;
+    padding: 0;
+}
+
+.about-right {
+    flex: 0 0 300px;
+    position: sticky;
+    top: 100px;
+}
+
+.profile-photo {
+    width: 300px; /* 增加照片尺寸 */
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto; /* 居中顯示 */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); /* 添加青色陰影 */
+}
+
+.about-description {
+    margin-bottom: 3rem;
+    font-size: 1.2em; /* 增加文字大小 */
+    line-height: 1.8; /* 增加行高 */
+    text-align: justify; /* 文字兩端對齊 */
+}
+
+.about-description p {
+    margin-bottom: 1.5em; /* 增加段落間距 */
+}
+
+.skills-chart {
+    flex: 0 0 300px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: -1rem; /* 向上移動 */
+}
+
+.tools-section {
+    width: 90%; /* 縮小寬度 */
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin: -2rem auto 0; /* 調整上方間距並居中 */
+}
+
+.tool-name {
+    font-size: 0.9em;
+    white-space: pre-line; /* 允許換行符生效 */
+    line-height: 1.2;
+    margin-top: 0.5rem;
+}
+
+.about-title {
+    font-size: 3em; /* 增加標題大小 */
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.about-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #00ffff, transparent);
+}
+
+/* 響應式調整 */
+@media (max-width: 1200px) {
+    .about-content {
+        gap: 2rem;
+    }
+    
+    .about-left {
+        flex: 0 0 250px;
+    }
+    
+    .profile-photo {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .about-right {
+        min-width: 100%;
+    }
+    
+    .about-description {
+        font-size: 1.1em;
+    }
+    
+    .tool-item {
+        width: 120px;
+    }
+}
+
+/* 添加動畫類 */
+.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.tools-section {
+    margin-top: 3rem; /* 增加與上方元素的間距 */
+}
+
+.tools-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* 增加工具圖標之間的間距 */
+    margin-top: 1.5rem;
+    flex-wrap: nowrap; /* 防止換行 */
+    overflow-x: auto; /* 如果內容過多，允許水平滾動 */
+    padding-bottom: 1rem; /* 為可能的滾動條留出空間 */
+}
+
+.tool-item {
+    flex: 0 0 auto; /* 不伸縮，保持始大 */
+    width: 120px; /* 定寬度 */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tool-item:hover {
+    transform: translateY(-5px);
+}
+
+.tool-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.tool-name {
+    font-size: 1rem;
+}
+
+/* 添加動畫類 */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.email-link {
+    display: inline-block;
+    font-size: 1.2em;
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: #00cccc;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #00ffff;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.skill {
+    background-color: #00ffff;
+    color: #121212;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 0.9em;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+}
+
+#contact-form button {
+    padding: 10px;
+    background-color: #00ffff;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #00cccc;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 80%;
+    max-height: 80%;
+    background-color: transparent; /* 將背景色改為透明 */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+}
+
+.content-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.modal img, .modal iframe {
+    max-width: 100%; /* 移除了減去箭頭寬的計算 */
+    max-height: calc(80vh - 80px);
+    object-fit: contain;
+}
+
+.modal-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#caption {
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5); /* 添加半透明背景 */
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.close {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .profile-photo {
+        flex: 0 0 auto;
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+.portfolio-section-title {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+@media (max-width: 768px) {
+    .portfolio-container {
+        flex-direction: column;
+    }
+
+    .portfolio-section {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+/* 確保在小屏幕上也能正確顯示 */
+@media (max-width: 768px) {
+    .fullscreen-section:not(#portfolio) {
+        padding-top: 100px; /* 在小屏幕上增加更多的頂部padding */
+    }
+
+    #portfolio {
+        padding-top: 140px;
+    }
+
+    .portfolio-title {
+        top: 150px;
+    }
+
+    .portfolio-container {
+        flex-direction: column;
+    }
+
+    .portfolio-section {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #contact {
+        padding-left: 10%; /* 在小屏幕上減少左邊距 */
+        padding-right: 10%; /* 在小屏幕上減右邊距 */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* 在小屏幕上改為垂直排列 */
+        align-items: flex-start; /* 左對齊 */
+        padding: 0.5rem;
+    }
+
+    nav {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .fullscreen-section {
+        padding-top: 100px; /* 在小屏幕上增加更多的頂padding */
+    }
+}
+
+/* 主頁背景媒體和漸層效果 */
+#home {
+    position: relative;
+    overflow: hidden;
+}
+
+.background-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-media video,
+.background-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-overlay {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+#home::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px; /* 調整漸層高 */
+    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    z-index: 0;
+}
+
+.about-title {
+    margin-bottom: 2rem;
+    margin-top: -2rem; /* 將標題往上移 */
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-left {
+    flex: 0 0 200px; /* 固定寬度 */
+    margin-right: 2rem;
+}
+
+.about-right {
+    flex: 1;
+    margin-right: 2rem;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-description {
+    margin-bottom: 2rem;
+}
+
+.skills-chart {
+    flex: 0 0 300px; /* 固定寬度，可以根據需要調整 */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.skill-info {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.skill-name {
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: #00ffff;
+    width: 0;
+    transition: width 1s ease-out;
+}
+
+.skill-percentage {
+    min-width: 40px;
+    text-align: right;
+}
+
+/* 添加動畫類 */
+.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .tool-item {
+        flex: 0 0 calc(33.333% - 1.5rem); /* 在小屏幕上每行3個圖標 */
+    }
+}
+
+#about.fullscreen-section {
+    padding-top: 150px; /* 增加頂部內邊距，將整個部分向下移動 */
+}
+
+.about-title {
+    margin-bottom: 3rem; /* 增加標題下方的間距 */
+    margin-top: 0; /* 移除之前的負邊距 */
+}
+
+.about-content {
+    margin-top: 2rem; /* 在內容上方添加額外的間距 */
+}
+
+.skills-chart {
+    margin-top: 3rem; /* 增加與上方元素的間距 */
+}
+
+.tools-section {
+    margin-top: 4rem; /* 增加上方元素的間距 */
+}
+
+/* 調整小屏幕上的間距 */
+@media (max-width: 768px) {
+    #about.fullscreen-section {
+        padding-top: 120px; /* 在小屏幕上稍微減少頂部內邊距 */
+    }
+}
+
+.portfolio-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 40px; /* 為頭留出空間 */
+}
+
+.portfolio-slider {
+    display: flex;
+    transition: transform 0.3s ease;
+    gap: 2rem; /* 增加項目之間的間距 */
+}
+
+#Ai-gallery .portfolio-item {
+    flex: 0 0 auto;
+    width: 300px; /* 增加寬度 */
+    margin-right: 0; /* 移右邊距，使用 gap 代替 */
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+.video-container {
+    position: absolute; /* 改為 absolute 而不是 fixed */
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#youtubeVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    pointer-events: none;
+}
+
+/* 確保主頁區域有相對定位 */
+#home {
+    position: relative;
+    overflow: hidden;
+}
+
+/* 其他區域添加背景色 */
+#portfolio, #about, #contact {
+    background-color: #121212; /* 與 body 背景色相同 */
+    position: relative;
+    z-index: 1; /* 確保這些區域在視頻上方 */
+}
+
+/* 添加動畫相關的樣式 */
+.about-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s ease;
+    will-change: transform, opacity;
+}
+
+.about-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s ease;
+    will-change: transform, opacity;
+}
+
+.skills-chart {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    will-change: transform, opacity;
+}
+
+.tools-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    will-change: transform, opacity;
+}
+
+/* 動畫觸發的類 */
+.animate-in {
+    opacity: 1;
+    transform: translate(0);
+}
+
+/* 工具圖標的動畫 */
+.tool-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.tool-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 技能條的動畫 */
+.skill-item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.skill-item.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 修改關於我頁面的布局 */
+#about.fullscreen-section {
+    min-height: 100vh;
+    padding: 140px 5% 50px; /* 減少頂部padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-title {
+    font-size: 3em;
+    margin-bottom: 2rem; /* 減少標題下方間距 */
+    text-align: center;
+    color: #00ffff;
+}
+
+/* 調整主要內容區域的間距 */
+.about-container {
+    width: 90%; /* 減少容器寬度 */
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* 調整內容間距 */
+.about-content {
+    display: flex;
+    gap: 3rem;
+    justify-content: center; /* 居中對齊 */
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+/* 調整技能圖表位置 */
+.skills-chart {
+    flex: 0 0 300px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: -2rem; /* 向上移動 */
+}
+
+/* 工具項文字樣式 */
+.tool-name {
+    font-size: 0.9em;
+    white-space: pre-line; /* 允許換行符生效 */
+    line-height: 1.2;
+    margin-top: 0.5rem;
+}
+
+/* 工具項大小調整 */
+.tool-item {
+    flex: 0 0 110px; /* 稍微縮小寬度 */
+    padding: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* 專案經歷時間軸樣式 */
+#experience {
+    background-color: #121212;
+    padding: 300px 5% 50px; /* 增加頂部padding到300px */
+}
+
+.experience-title {
+    font-size: 3em;
+    text-align: center;
+    color: #00ffff;
+    margin-bottom: 4rem;
+    padding-top: 80px; /* 增加頂部內邊距 */
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.timeline {
+    position: relative;
+    padding: 1rem 0; /* 減少上下內邊距 */
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(0, 255, 255, 0.3);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem; /* 減少項目之間的間距 */
+    width: 100%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.timeline-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #00ffff;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.timeline-content {
+    position: relative;
+    width: calc(50% - 50px);
+    padding: 1.2rem; /* 減少內容區域的內邊距 */
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin-left: auto;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.timeline-date {
+    color: #00ffff;
+    font-size: 0.9em;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content h3 {
+    color: #fff;
+    font-size: 1.4em;
+    margin-bottom: 0.8rem; /* 減少標題下方間距 */
+}
+
+.timeline-content p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 0.8rem; /* 減少段落間距 */
+}
+
+/* 添加動畫效果 */
+.timeline-item:nth-child(odd) {
+    transform: translateX(-30px);
+}
+
+.timeline-item:nth-child(even) {
+    transform: translateX(30px);
+}
+
+.timeline-item.animate-in {
+    transform: translateX(0);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-dot {
+        left: 30px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 80px;
+        margin-right: 0;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        transform: translateX(30px);
+    }
+}
+
+
